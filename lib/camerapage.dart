@@ -58,7 +58,14 @@ class HomePage extends StatelessWidget {
                     return imageFile != null
                       ? Column(
                         children: [
-
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Image.file(
+                              imageFile,
+                              width: double.infinity,
+                              ),
+                          ),
+                          Text('Gambar disimpan di: $(imageFile.path)'),
                       ],
                     );
                   }
