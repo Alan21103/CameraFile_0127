@@ -46,9 +46,23 @@ class HomePage extends StatelessWidget {
                       onPressed: () => context
                           .read<CameraBloc>()
                           .add(PickImageFromGallery()),
-                      )
+                    )
                   ],
-                )
+                ),
+                const SizedBox(height: 20),
+                BlocBuilder<CameraBloc, CameraState>(
+                  builder: (context, state) {
+                    final imageFile =
+                      state is CameraReady ? state.imageFile : null;
+                    
+                    return imageFile != null
+                      ? Column(
+                        children: [
+
+                      ],
+                    );
+                  }
+                ),
               ],
             );
           }
