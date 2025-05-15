@@ -65,9 +65,20 @@ class HomePage extends StatelessWidget {
                               width: double.infinity,
                               ),
                           ),
-                          Text('Gambar disimpan di: $(imageFile.path)'),
+                          Text('Gambar disimpan di: ${imageFile.path}'),
+                          ElevatedButton.icon(
+                            icon: const Icon(Icons.delete),
+                            label: const Text('Hapus Gambar'),
+                            onPressed: () => context
+                                .read<CameraBloc>()
+                                .add(DeleteImage()),
+                            )
                       ],
-                    );
+                    )
+                    : const Padding(
+                      padding: EdgeInsets.all(12.0),
+                      child: Text('Belum ada gambar diambil/dipilih'),
+                      );
                   }
                 ),
               ],
